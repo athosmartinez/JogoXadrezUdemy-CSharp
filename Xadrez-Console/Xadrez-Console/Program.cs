@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
+using Xadrez_Console;
 using Xadrez_Console.Tabuleiro;
 
 namespace MyApp // Note: actual namespace depends on the project name.
@@ -9,7 +11,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
 
             Tabuleiro tabuleiro = new Tabuleiro(8, 8);
-            Console.WriteLine(tabuleiro);
+            Tela.imprimirTab(tabuleiro);
+            Console.ReadLine(); 
+
 
         }
     }
