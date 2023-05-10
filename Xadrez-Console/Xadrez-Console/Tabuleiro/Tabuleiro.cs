@@ -27,11 +27,43 @@ namespace Xadrez_Console.Tabuleiro
             return pecas[linha, coluna];
         }
 
+        public Peca peca(Posicao pos)
+        {
+            return pecas[pos.linha, pos.coluna];
+
+        }
+
+        public bool existaPeca(Posicao pos)
+        {
+            ValidarPosicao(pos);
+            return peca(pos) != null;
+        }
+
+
         public void colocarPeca(Peca p, Posicao pos)
         {
 
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
+
+        public bool posicaoValida(Posicao pos)
+        {
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
+            {
+                return false;
+            }
+            return true;
+
+        }
+
+        public void ValidarPosicao(Posicao pos)
+        {
+            if (posicaoValida(pos) == false)
+            {
+                throw new TabuleiroExecption("Posição inválida!");
+            }
+        }
+
     }
 }
