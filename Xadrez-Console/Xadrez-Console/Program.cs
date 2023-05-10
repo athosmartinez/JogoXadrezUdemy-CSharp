@@ -15,7 +15,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Black), new Posicao(0, 0));
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new Posicao(1, 3));
-            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new Posicao(0, 0));
+            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new Posicao(0, 1));
 
             Tela.imprimirTab(tabuleiro);
             Console.ReadLine();
