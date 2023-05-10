@@ -42,7 +42,10 @@ namespace Xadrez_Console.Tabuleiro
 
         public void colocarPeca(Peca p, Posicao pos)
         {
-
+            if (existaPeca(pos))
+            {
+                throw new TabuleiroExecption("Já existe uma peça nessa posição!");
+            }
             pecas[pos.linha, pos.coluna] = p;
             p.posicao = pos;
         }
