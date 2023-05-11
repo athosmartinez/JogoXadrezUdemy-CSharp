@@ -21,6 +21,11 @@ namespace Xadrez_Console.Tabuleiro
             this.qntMovimentos = 0;
         }
 
+        public void incrementarQntMovimentos()
+        {
+            qntMovimentos++;
+        }
+
 
     }
 }
