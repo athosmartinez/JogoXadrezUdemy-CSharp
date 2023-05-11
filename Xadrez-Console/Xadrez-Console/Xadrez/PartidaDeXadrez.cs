@@ -33,10 +33,10 @@ namespace Xadrez_Console.Xadrez
         }
         private void colocarPecas()
         {
-            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.White), new PosicaoXadrez('c', 1).toPosicao());
-            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new PosicaoXadrez('c', 8).toPosicao());
-            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new PosicaoXadrez('c', 7).toPosicao());
-            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.White), new PosicaoXadrez('c', 2).toPosicao());
+            tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.White), new PosicaoXadrez('c', 1).toPosicao());
+            tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Black), new PosicaoXadrez('c', 8).toPosicao());
+            tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Black), new PosicaoXadrez('c', 7).toPosicao());
+            tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.White), new PosicaoXadrez('c', 2).toPosicao());
         }
     }
 }

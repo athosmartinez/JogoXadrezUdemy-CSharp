@@ -16,11 +16,17 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                 while (!partida.terminada)
                 {
-                    Console.Clear();
+                    
+                
                     Tela.imprimirTab(partida.tabuleiro);
-                    Console.WriteLine();
                     Console.Write("Origem > ");
                     Posicao origem = Tela.letPosicaoXadrez().toPosicao();
+
+                    bool[,] posicoesPossiveis = partida.tabuleiro.peca(origem).movimentosPossiveis();
+
+                    Console.Clear();
+                    Tela.imprimirTab(partida.tabuleiro, posicoesPossiveis);
+
                     Console.Write("Destino > ");
                     Posicao destino = Tela.letPosicaoXadrez().toPosicao();
                     partida.executaMovimento(origem, destino);
