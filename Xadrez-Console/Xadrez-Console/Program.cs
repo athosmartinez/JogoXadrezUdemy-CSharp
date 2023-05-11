@@ -10,10 +10,24 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
+            try { 
+            Tabuleiro tabuleiro = new Tabuleiro(8, 8);
 
+            tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Black), new Posicao(0, 0));
+            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new Posicao(1, 3));
+            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new Posicao(0, 1));
+            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.White), new Posicao(0, 2));
+            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.White), new Posicao(0, 3));
+            tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Black), new Posicao(0, 4));
 
-            PosicaoXadrez pos = new PosicaoXadrez('a', 1);
-            Console.WriteLine(pos.toPosicao());
+            Tela.imprimirTab(tabuleiro);
+            Console.ReadLine();
+            }
+            catch (TabuleiroExecption e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
 
         }
     }
