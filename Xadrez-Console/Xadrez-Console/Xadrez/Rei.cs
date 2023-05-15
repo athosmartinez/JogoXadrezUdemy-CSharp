@@ -31,57 +31,57 @@ namespace Xadrez_Console.Xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //acima
+            //ACIMA
             pos.DefinirValores(posicao.linha - 1, posicao.coluna);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //NE
             pos.DefinirValores(posicao.linha - 1, posicao.coluna + 1);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //DIRETA
             pos.DefinirValores(posicao.linha, posicao.coluna + 1);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //SE
             pos.DefinirValores(posicao.linha + 1, posicao.coluna + 1);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //ABAIXO
             pos.DefinirValores(posicao.linha + 1, posicao.coluna);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //SO
             pos.DefinirValores(posicao.linha + 1, posicao.coluna - 1);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //ESQUERDA
             pos.DefinirValores(posicao.linha, posicao.coluna - 1);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             //NO
             pos.DefinirValores(posicao.linha - 1, posicao.coluna - 1);
             if (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
-                mat[posicao.linha, posicao.coluna] = true;
+                mat[pos.linha, pos.coluna] = true;
             }
             return mat;
         }
-
     }
 
 }
+

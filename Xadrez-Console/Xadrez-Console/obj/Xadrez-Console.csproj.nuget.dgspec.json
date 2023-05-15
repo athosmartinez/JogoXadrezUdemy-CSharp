@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\athos\\OneDrive\\Documents\\GitHub\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj": {}
+    "C:\\Users\\athos.andrade\\source\\repos\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\athos\\OneDrive\\Documents\\GitHub\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj": {
+    "C:\\Users\\athos.andrade\\source\\repos\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\athos\\OneDrive\\Documents\\GitHub\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
+        "projectUniqueName": "C:\\Users\\athos.andrade\\source\\repos\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
         "projectName": "Xadrez-Console",
-        "projectPath": "C:\\Users\\athos\\OneDrive\\Documents\\GitHub\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
-        "packagesPath": "C:\\Users\\athos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\athos\\OneDrive\\Documents\\GitHub\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\obj\\",
+        "projectPath": "C:\\Users\\athos.andrade\\source\\repos\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\Xadrez-Console.csproj",
+        "packagesPath": "C:\\Users\\athos.andrade\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\athos.andrade\\source\\repos\\JogoXadrezUdemy-CSharp\\Xadrez-Console\\Xadrez-Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\athos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\athos.andrade\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
