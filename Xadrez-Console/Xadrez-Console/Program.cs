@@ -20,6 +20,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.Clear();
 
                     Tela.imprimirTab(partida.tabuleiro);
+                    Console.WriteLine();
+                    Console.WriteLine("Turno: " + partida.turno);
+                    Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
                     Console.Write("Origem > ");
                     Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
 
@@ -27,10 +30,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                     Console.Clear();
                     Tela.imprimirTab(partida.tabuleiro, posicoesPossiveis);
-
+                    Console.WriteLine();
                     Console.Write("Destino > ");
                     Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
-                    partida.executaMovimento(origem, destino);
+                    partida.realizaJogada(origem, destino);
                 }
 
 
