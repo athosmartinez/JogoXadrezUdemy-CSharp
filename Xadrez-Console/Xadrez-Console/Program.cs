@@ -16,11 +16,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                 while (!partida.terminada)
                 {
-                    
-                
+
+                    Console.Clear();
+
                     Tela.imprimirTab(partida.tabuleiro);
                     Console.Write("Origem > ");
-                    Posicao origem = Tela.letPosicaoXadrez().toPosicao();
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
 
                     bool[,] posicoesPossiveis = partida.tabuleiro.peca(origem).movimentosPossiveis();
 
@@ -28,7 +29,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Tela.imprimirTab(partida.tabuleiro, posicoesPossiveis);
 
                     Console.Write("Destino > ");
-                    Posicao destino = Tela.letPosicaoXadrez().toPosicao();
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
                     partida.executaMovimento(origem, destino);
                 }
 

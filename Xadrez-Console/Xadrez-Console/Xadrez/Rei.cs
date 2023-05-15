@@ -10,9 +10,9 @@ namespace Xadrez_Console.Xadrez
 {
     internal class Rei : Peca
     {
+
         public Rei(Tabuleiro.Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
         {
-
         }
         public override string ToString()
         {
@@ -22,7 +22,7 @@ namespace Xadrez_Console.Xadrez
         private bool podeMover(Posicao pos)
         {
             Peca p = tabuleiro.peca(pos);
-            return p == null || p.cor != this.cor;
+            return p == null || p.cor != cor;
         }
 
         public override bool[,] movimentosPossiveis()

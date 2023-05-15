@@ -61,7 +61,7 @@ namespace Xadrez_Console.Tabuleiro
             aux.posicao = null;
             pecas[pos.linha, pos.coluna] = null;
             return aux;
-            return aux;
+            
         }
 
 

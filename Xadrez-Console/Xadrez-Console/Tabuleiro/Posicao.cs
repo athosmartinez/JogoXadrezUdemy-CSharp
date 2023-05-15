@@ -25,7 +25,7 @@ namespace Xadrez_Console.Tabuleiro
         }
         public override string ToString()
         {
-            return linha + " " + coluna;
+            return linha + ", " + coluna;
         }
 
     }
