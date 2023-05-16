@@ -18,6 +18,7 @@ namespace Xadrez_Console.Xadrez
 
         private HashSet<Peca> pecas;
         private HashSet<Peca> capturadas;
+        public bool xeque { get; private set; }
 
 
         public PartidaDeXadrez()
@@ -31,7 +32,7 @@ namespace Xadrez_Console.Xadrez
             colocarPecas();
         }
 
-        public void executaMovimento(Posicao origem, Posicao destino)
+        public Peca executaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tabuleiro.retirarPeca(origem);
             p.incrementarQntMovimentos();
@@ -41,14 +42,42 @@ namespace Xadrez_Console.Xadrez
             {
                 capturadas.Add(pecaCapturada);
             }
+            return pecaCapturada;
         }
 
         public void realizaJogada(Posicao origem, Posicao destino)
         {
+            Peca pecaCapturada = executaMovimento(origem, destino);
             executaMovimento(origem, destino);
+            if (estaEmXeque(jogadorAtual))
+            {
+                desFazMovimento(origem, destino, pecaCapturada);
+                throw new TabuleiroExecption("Você não pode se colocar em xeque!");
+            }
 
+            if (estaEmXeque(adversario(jogadorAtual)))
+            {
+                xeque = true;
+            }
+            else
+            {
+                xeque = false;
+            }
             turno++;
             mudaJogador();
+
+        }
+
+        public void desFazMovimento(Posicao origem, Posicao destino, Peca pecaCapturada)
+        {
+            Peca p = tabuleiro.retirarPeca(destino);
+            p.decrementarQntMovimentos();
+            if (pecaCapturada != null)
+            {
+                tabuleiro.colocarPeca(pecaCapturada, destino);
+                capturadas.Remove(pecaCapturada);
+            }
+            tabuleiro.colocarPeca(p, origem);
         }
 
         public void ValidarPosicaoDeOrigem(Posicao pos)
@@ -67,7 +96,7 @@ namespace Xadrez_Console.Xadrez
             }
         }
 
-        public void ValidarPoscaioDestino(Posicao origem, Posicao destino)
+        public void ValidarPosicaoDestino(Posicao origem, Posicao destino)
         {
             if (!tabuleiro.peca(origem).podeMoverPara(destino))
             {
@@ -88,10 +117,10 @@ namespace Xadrez_Console.Xadrez
 
         public HashSet<Peca> pecasCapturas(Cor cor)
         {
-            HashSet<Peca> aux =  new HashSet<Peca>();
-            foreach(Peca x in capturadas)
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in capturadas)
             {
-                if(x.cor == cor)
+                if (x.cor == cor)
                 {
                     aux.Add(x);
                 }
@@ -101,16 +130,58 @@ namespace Xadrez_Console.Xadrez
 
         public HashSet<Peca> pecasEmJogo(Cor cor)
         {
-            HashSet<Peca> aux= new HashSet<Peca> ();
-            foreach(Peca x in pecas)
+            HashSet<Peca> aux = new HashSet<Peca>();
+            foreach (Peca x in pecas)
             {
-                if(x.cor == cor)
+                if (x.cor == cor)
                 {
                     aux.Add(x);
                 }
             }
             aux.ExceptWith(pecasCapturas(cor));
             return aux;
+        }
+
+        private Cor adversario(Cor cor)
+        {
+            if (cor == Cor.White)
+            {
+                return Cor.Black;
+            }
+            else
+            {
+                return Cor.White;
+            }
+        }
+
+        private Peca rei(Cor cor)
+        {
+            foreach (Peca x in pecasEmJogo(cor))
+            {
+                if (x is Rei)
+                {
+                    return x;
+                }
+            }
+            return null;
+        }
+
+        public bool estaEmXeque(Cor cor)
+        {
+            Peca R = rei(cor);
+            if (R == null)
+            {
+                throw new TabuleiroExecption("Não tem rei da cor " + cor + "no tabuleiro");
+            }
+            foreach (Peca x in pecasEmJogo(adversario(cor)))
+            {
+                bool[,] mat = x.movimentosPossiveis();
+                if (mat[R.posicao.linha, R.posicao.coluna])
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void colocarNovaPeca(char coluna, int linha, Peca peca)

@@ -26,6 +26,11 @@ namespace Xadrez_Console.Tabuleiro
             qntMovimentos++;
         }
 
+        public void decrementarQntMovimentos()
+        {
+            qntMovimentos--;
+        }
+
         public bool existeMovimentosPossiveis()
         {
             bool[,] mat = movimentosPossiveis();

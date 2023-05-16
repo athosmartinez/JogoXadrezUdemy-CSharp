@@ -43,7 +43,6 @@ namespace Xadrez_Console
             ConsoleColor aux = Console.ForegroundColor;
             Console.ForegroundColor = ConsoleColor.Yellow;
             imprimirConjunto(partida.pecasCapturas(Cor.Black));
-            
             Console.ForegroundColor = aux;
             Console.WriteLine();
 
