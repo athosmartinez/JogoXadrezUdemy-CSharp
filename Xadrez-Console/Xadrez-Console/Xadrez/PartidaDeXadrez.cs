@@ -107,7 +107,7 @@ namespace Xadrez_Console.Xadrez
         {
             if (!tabuleiro.peca(origem).movimentoPossivel(destino))
             {
-                throw new TabuleiroExecption("Posição de destinho inválida!");
+                throw new TabuleiroExecption("Posição de destino inválida!");
             }
         }
         private void mudaJogador()
