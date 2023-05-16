@@ -105,7 +105,7 @@ namespace Xadrez_Console.Xadrez
 
         public void ValidarPosicaoDestino(Posicao origem, Posicao destino)
         {
-            if (!tabuleiro.peca(origem).podeMoverPara(destino))
+            if (!tabuleiro.peca(origem).movimentoPossivel(destino))
             {
                 throw new TabuleiroExecption("Posição de destinho inválida!");
             }
