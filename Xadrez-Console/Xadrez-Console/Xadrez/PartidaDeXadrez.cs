@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Xadrez_Console.Tabuleiro;
@@ -39,6 +40,29 @@ namespace Xadrez_Console.Xadrez
 
             turno++;
             mudaJogador();
+        }
+
+        public void ValidarPosicaoDeOrigem(Posicao pos)
+        {
+            if (tabuleiro.peca(pos) == null)
+            {
+                throw new TabuleiroExecption("Não existe peça na posição de origem escolhida.");
+            }
+            if (jogadorAtual != tabuleiro.peca(pos).cor)
+            {
+                throw new TabuleiroExecption("A peça de origem escolhida não é sua!");
+            }
+            if (!tabuleiro.peca(pos).existeMovimentosPossiveis())
+            {
+                throw new TabuleiroExecption("Não há movimentos possiveis para está peça!");
+            }
+        }
+
+        public void ValidarPoscaioDestino(Posicao origem, Posicao destino)
+        {
+            if (!tabuleiro.peca(origem).podeMoverPara(destino)){
+                throw new TabuleiroExecption("Posição de destinho inválida!");
+            }
         }
         private void mudaJogador()
         {
