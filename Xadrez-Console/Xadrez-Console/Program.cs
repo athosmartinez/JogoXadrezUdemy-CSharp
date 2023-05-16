@@ -21,14 +21,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                         Console.Clear();
 
-                        Tela.imprimirTab(partida.tabuleiro);
+                        Tela.imprimirPartida(partida);
                         Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.jogadorAtual);
-                        Console.Write("Origem > ");
+                        Console.Write("Origem> ");
                         Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
                         partida.ValidarPosicaoDeOrigem(origem);
-
                         bool[,] posicoesPossiveis = partida.tabuleiro.peca(origem).movimentosPossiveis();
 
                         Console.Clear();
