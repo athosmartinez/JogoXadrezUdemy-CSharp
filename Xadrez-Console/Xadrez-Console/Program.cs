@@ -33,7 +33,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine();
                         Console.Write("Destino > ");
                         Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
-                        partida.ValidarPoscaioDestino(origem, destino);
+                        partida.ValidarPosicaoDestino(origem, destino);
+
                         partida.realizaJogada(origem, destino);
                     }
                     catch (TabuleiroExecption e)

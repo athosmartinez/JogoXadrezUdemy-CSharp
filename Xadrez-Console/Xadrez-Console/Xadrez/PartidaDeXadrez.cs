@@ -48,7 +48,7 @@ namespace Xadrez_Console.Xadrez
         public void realizaJogada(Posicao origem, Posicao destino)
         {
             Peca pecaCapturada = executaMovimento(origem, destino);
-            executaMovimento(origem, destino);
+
             if (estaEmXeque(jogadorAtual))
             {
                 desFazMovimento(origem, destino, pecaCapturada);
