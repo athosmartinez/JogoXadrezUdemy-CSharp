@@ -206,10 +206,11 @@ namespace Xadrez_Console.Xadrez
                     {
                         if (mat[i, j])
                         {
+                            Posicao origem = x.posicao;
                             Posicao destino = new Posicao(i, j);
-                            Peca pecaCapturada = executaMovimento(x.posicao, new Posicao(i, j));
+                            Peca pecaCapturada = executaMovimento(origem, destino);
                             bool testeXeque = estaEmXeque(cor);
-                            desFazMovimento(x.posicao, destino, pecaCapturada);
+                            desFazMovimento(origem, destino, pecaCapturada);
                             if (!testeXeque)
                             {
                                 return false;
@@ -230,19 +231,13 @@ namespace Xadrez_Console.Xadrez
         private void colocarPecas()
         {
             colocarNovaPeca('c', 1, new Torre(tabuleiro, Cor.White));
-            colocarNovaPeca('c', 2, new Torre(tabuleiro, Cor.White));
             colocarNovaPeca('d', 1, new Rei(tabuleiro, Cor.White));
-            colocarNovaPeca('e', 1, new Torre(tabuleiro, Cor.White));
-            colocarNovaPeca('e', 2, new Torre(tabuleiro, Cor.White));
-            colocarNovaPeca('d', 2, new Torre(tabuleiro, Cor.White));
+            colocarNovaPeca('h', 7, new Torre(tabuleiro, Cor.White));
 
 
-            colocarNovaPeca('c', 7, new Torre(tabuleiro, Cor.Black));
-            colocarNovaPeca('c', 8, new Torre(tabuleiro, Cor.Black));
-            colocarNovaPeca('d', 8, new Rei(tabuleiro, Cor.Black));
-            colocarNovaPeca('e', 7, new Torre(tabuleiro, Cor.Black));
-            colocarNovaPeca('e', 8, new Torre(tabuleiro, Cor.Black));
-            colocarNovaPeca('d', 7, new Torre(tabuleiro, Cor.Black));
+            colocarNovaPeca('a', 8, new Rei(tabuleiro, Cor.Black));
+            colocarNovaPeca('b', 8, new Torre(tabuleiro, Cor.Black));
+
 
         }
     }

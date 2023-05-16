@@ -43,6 +43,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.ReadLine();
                     }
                 }
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
             catch (TabuleiroExecption e)
             {
