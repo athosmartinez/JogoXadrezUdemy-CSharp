@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xadrez_Console.Tabuleiro;
@@ -9,11 +10,12 @@ namespace Xadrez_Console.Xadrez
 {
     internal class Peao : Peca
     {
+        private PartidaDeXadrez partida;
 
 
-        public Peao(Tabuleiro.Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Peao(Tabuleiro.Tabuleiro tab, Cor cor, PartidaDeXadrez partida) : base(tab, cor)
         {
-
+            this.partida = partida;
         }
 
         public override string ToString()
@@ -60,6 +62,21 @@ namespace Xadrez_Console.Xadrez
                 {
                     mat[pos.linha, pos.coluna] = true;
                 }
+
+                //jogada especial - en passant 
+                if (posicao.linha == 3)
+                {
+                    Posicao esquerda = new Posicao(posicao.linha, posicao.coluna - 1);
+                    if (tabuleiro.posicaoValida(esquerda) && existeInimigo(esquerda) && tabuleiro.peca(esquerda) == partida.vulneravelEnPassant)
+                    {
+                        mat[esquerda.linha, esquerda.coluna] = true;
+                    }
+                    Posicao direita = new Posicao(posicao.linha, posicao.coluna + 1);
+                    if (tabuleiro.posicaoValida(direita) && existeInimigo(direita) && tabuleiro.peca(direita) == partida.vulneravelEnPassant)
+                    {
+                        mat[direita.linha, direita.coluna] = true;
+                    }
+                }
             }
             else
             {
@@ -82,6 +99,21 @@ namespace Xadrez_Console.Xadrez
                 if (tabuleiro.posicaoValida(pos) && existeInimigo(pos))
                 {
                     mat[pos.linha, pos.coluna] = true;
+                }
+
+                //jogada especial - en passant 
+                if (posicao.linha == 4)
+                {
+                    Posicao esquerda = new Posicao(posicao.linha, posicao.coluna - 1);
+                    if (tabuleiro.posicaoValida(esquerda) && existeInimigo(esquerda) && tabuleiro.peca(esquerda) == partida.vulneravelEnPassant)
+                    {
+                        mat[esquerda.linha, esquerda.coluna] = true;
+                    }
+                    Posicao direita = new Posicao(posicao.linha, posicao.coluna + 1);
+                    if (tabuleiro.posicaoValida(direita) && existeInimigo(direita) && tabuleiro.peca(direita) == partida.vulneravelEnPassant)
+                    {
+                        mat[direita.linha, direita.coluna] = true;
+                    }
                 }
             }
             return mat;

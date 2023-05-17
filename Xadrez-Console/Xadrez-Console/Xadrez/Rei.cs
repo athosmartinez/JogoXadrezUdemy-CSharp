@@ -99,11 +99,12 @@ namespace Xadrez_Console.Xadrez
                     Posicao p2 = new Posicao(posicao.linha, posicao.coluna + 2);
                     if (tabuleiro.peca(p1) == null && tabuleiro.peca(p2) == null)
                     {
-                        mat[posicao.linha, posicao.coluna - 2] = true;
+                        mat[posicao.linha, posicao.coluna + 2] = true;
                     }
                 }
+                //roque grande
                 Posicao posT2 = new Posicao(posicao.linha, posicao.coluna - 4);
-                if (testeTorreParaRoque(posT1))
+                if (testeTorreParaRoque(posT2))
                 {
                     Posicao p1 = new Posicao(posicao.linha, posicao.coluna - 1);
                     Posicao p2 = new Posicao(posicao.linha, posicao.coluna - 2);
